@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  vertex_id: 
+  x: 
+  y: 
+  out_degree: 1
+  mode_id: 
+
+two:
+  vertex_id: 
+  x: 
+  y: 
+  out_degree: 1
+  mode_id: 

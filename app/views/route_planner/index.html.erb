@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Multimodal Route Service</title>
+    <link rel="SHORTCUT ICON" href="/multimodal_munich/images/favicon.ico" type="image/x-icon"/>
+    <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+    <meta NAME="Author" CONTENT="Lu Liu">
+    <meta NAME="Keywords" CONTENT="multimodal routing, route planning, unitedmaps, Photogrammetrie, Fernerkundung, Katographie, Photogrammetry, Remote Sensing, Cartography, Institute,  IPK, IPC, FPF, LMF, LfK, Geod&auml;sie, Geodesy, Geoinformation, G&G, GuG, ESPACE, IGSSE, Technische, Universit&auml;t M&uuml;nchen, Muenchen,Technical, University, Munich, TUM, Arcisstr., 21">
+    <link href="http://www.ipk.bv.tum.de/css/template_css.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/1.5/js/dojo/dijit/themes/tundra/tundra.css">
+    <script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAA-bNgiNC5E3qCmigVt8VJrhSJhzpCz2XvaInM_PKJZe0iAoeKkxQeufYijKS68jcc-iQT1X_UvtfuVQ"></script>
+<%#*<script type="text/javascript" src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6"></script>%>
+    <script type="text/javascript" src="/multimodal_munich/javascripts/mapstraction.js"></script>
+<%# <script type="text/javascript" charset="utf-8" src="http://mapstraction.googlecode.com/svn/trunk/source/mxn.js?(google)"></script>%>
+    <script type="text/javascript" src="/multimodal_munich/javascripts/mapstraction-geocode.js"></script>
+    <script type="text/javascript" src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=1.5"></script>
+    <script type="text/javascript" src="/multimodal_munich/javascripts/proj4js/proj4js-combined.js"></script>
+    <script type="text/javascript" src="/multimodal_munich/javascripts/mmrouting.js"></script>
+    <%=javascript_include_tag :defaults %>
+    <style type="text/css">
+      <!--
+      .AppTitle {
+        color: #0a5094;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 24px;
+      }
+      .STYLE6 {
+        font-size: 16px;
+        font-weight: bold;
+        color: #000000;
+      }
+      .mmrpcomponentheading{
+        color: #0a5096;
+        font-weight: bold;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+      }
+      -->
+    </style>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-5463625-3']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+  </head>
+
+  <body>
+    <table id="main_table" width="100%"  border="0" cellspacing="1" cellpadding="0" class="maintable">
+      <tr>
+        <td style="height:95px" colspan="2" class="headerbg" id="headertable">
+          <table width="100%"  border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="width:338px; height:95px"><a href="http://www.tum.de" target="_blank"><img src="http://www.ipk.bv.tum.de/images/tum_logo.gif" alt="TUM" width="338" height="117" border="0"/></a></td>
+              <td style="width:132px"><img src="http://www.ipk.bv.tum.de/images/image1.gif" border="0" alt="IPK"></td>
+              <td style="width:207px"><img src="http://www.ipk.bv.tum.de/images/image2.gif" border="0" alt="IPK"></td>
+              <td style="vertical-align:bottom"><div style="text-align:right"><a href="http://www.carto-tum.de" target="_blank"><img src="http://www.photo.verm.tu-muenchen.de/images/slogan.gif" alt="BV" border="0"/></a></div></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td id="footer" style="height:19px; background-color: #dfd5cc" colspan="2">&nbsp;<a href="/multimodal_munich/help.html"><i>usage instructions</i></a></td>
+      </tr>
+      <tr>
+        <td style="height:40px; background-color: #f5f7f6" colspan="2">
+          &nbsp;<strong><span class="AppTitle">Multimodal Route Planner for Munich</span></strong>
+        </td>
+<%#*<td style="text-align:right; vertical-align: bottom; background-color:#f5f7f6">%>
+<%#*<small><b><i>INCOMPATABLE with Microsoft Internet Explorer,<br/>%>
+<%#*please use a normal web browser e.g. Firefox, Chrome, Safari etc.</i></b></small>%>
+<%#*</td>%>
+      </tr>
+      <tr>
+        <td style="width:310px; background-color:#f5f7f6; vertical-align: top">
+          <div id="info_div" style="width:310px;overflow:auto">
+            <table width="290px">
+              <tr>
+                <td>
+                  <span class="notranslate">
+                    <% form_remote_tag :url => 'do_routing',
+                      :id => 'routing_inputs',
+                      :update => {:success => 'routing_result'},
+                      :failure => 'document.write(request.responseText)',
+                      :loading => 'displayLoading()',
+                      :complete => 'displayResults()' do -%>
+                      <table>
+                        <tr>
+                          <td>
+                            <div style="white-space:nowrap;">
+                              <span class="mmrpcomponentheading">Routing data source:&nbsp;</span>
+                              <%= select_tag "datasource", "<option selected='selected'>United Maps</option>", :style=>"width:108px" %>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div>
+                              <span class="mmrpcomponentheading">Start:&nbsp;&nbsp;</span>
+                              <%= text_field_tag "start", "Arcisstrasse, Munich", :style=>"width:198px", :class=>"searchbox", :onclick=>"changeState('start')" %>
+                              <%= hidden_field_tag "start_coordinate", "48.1513694, 11.5704511" %>
+                              <a href="javascript:setRoutingPointByGeocoding('start')">
+                                <img src="/multimodal_munich/images/flag_green48.png" alt="select start point" title="select start point" width="22" height="22" border="0">
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div>
+                              <span class="mmrpcomponentheading">&nbsp;&nbsp;&nbsp;&nbsp;End:&nbsp;&nbsp;</span>
+                              <%= text_field_tag "end", "48.149710, 11.497536", :style=>"width:198px", :class=>"searchbox", :onclick=>"changeState('end')" %>
+                              <%= hidden_field_tag "end_coordinate", "48.149710, 11.497536" %>
+                              <a href="javascript:setRoutingPointByGeocoding('end')">
+                                <img src="/multimodal_munich/images/flag_checkered.png" alt="select end point" title="select end point" width="22" height="22" border="0">
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <hr/>
+                            <span class="mmrpcomponentheading">Routing options</span><br/>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <%= check_box_tag "private_car_available", "yes", false, :onclick=>"{setNeedParkingState(this.checked);}" %>
+                            Private car available on departure
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <%= check_box_tag "need_parking", "yes", false, :disabled=>true %>
+                            Need parking for the car
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <%= check_box_tag "can_use_public_transit", "yes", false, :disabled=>false, :onclick=>"{setPublicTransitListState(this.checked);}"  %>
+                            Can use public transit
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div id="public_transit_list" style="display:none">
+                              &nbsp;&nbsp;<%= check_box_tag "suburban", "yes", false, :disabled=>false, :onclick=>"{setPublicTransitState();}" %>
+                              Suburban<br/>
+                              &nbsp;&nbsp;<%= check_box_tag "underground", "yes", false, :disabled=>false, :onclick=>"{setPublicTransitState();}"%>
+                              Underground<br/>
+                              &nbsp;&nbsp;<%= check_box_tag "tram", "yes", false, :disabled=>false, :onclick=>"{setPublicTransitState();}" %>
+                              Tram<br/>
+                              &nbsp;&nbsp;<%= check_box_tag "bus", "yes", false, :disabled=>true, :onclick=>"{setPublicTransitState();}" %>
+                              Bus<br/>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div align="right">
+                              <span class="mmrpcomponentheading">Objective:&nbsp;&nbsp;</span>
+                              <%= select_tag "objective", "<option selected='selected'>fastest</option><option>shortest</option>", :style=>"width:125px" %>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div align="right">
+                              <%= submit_tag "Calculate", :id=>"do_calculation", :class=>"button" %>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    <% end -%>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div id="loading_sign" style="display:none"><img alt="loading" src="/multimodal_munich/images/loading.gif" />Calculating paths...</div>
+                  <div id="routing_result"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <hr/>
+                  <span class="mmrpcomponentheading">Base map</span><br/>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div id="map_select">
+                    <input type="radio" name="api" value="google" CHECKED onClick="changeToMapView('google_map', 'google')"> Google<br/>
+<%#*<input type="radio" name="api" value="microsoft" onClick="changeToMapView('bing_map','microsoft')"> Microsoft<br>%>
+                    <input type="radio" name="api" value="openstreetmap" onClick="changeToMapView('osm_map','openstreetmap')"> OpenStreetMap<br/>
+                    <input type="radio" name="api" value="unitedmaps" onClick="changeToMapView('um_map','unitedmaps')"> United Maps<br/>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input id="routable_area" type="checkbox" onclick="switchRoutableArea(this.checked)" />show routable area
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <hr/>                  
+                  <span class="mmrpcomponentheading">Routing data Provided by</span><br/>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="http://unitedmaps.net/"><img src="http://unitedmaps.net/templates/unitedmaps/img/logo.gif" width="160" height="60" border="0" alt="United Maps &ndash; smart mapping on a human scale."></a>
+                </td>
+              </tr>
+<%#*<tr>%>
+<%#*<td>%>
+<%#*<a href="http://www.openstreetmap.org"><img src="http://www.openstreetmap.org/images/osm_logo.png" width="40" height="40" border="0" alt="OSM">&nbsp;<span class="STYLE6">OpenStreetMap</span></a>%>
+<%#*</td>%>
+<%#*</tr>%>
+              <tr>
+                <td>
+                  <hr/>
+                  <span class="mmrpcomponentheading">Contact</span><br/>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="contentsubheading" style="vertical-align:middle; height:20px">&nbsp;&nbsp;<a href="http://129.187.175.5/lfkwebsite/index.php?id=167"><i>Lu Liu</i></a></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="innerpad">
+                    <img src="/multimodal_munich/images/lfk_logo.png" alt="LFK" width="83" height="59"><br/>
+                    <a href="http://www.carto-tum.de">Lehrstuhl f&uuml;r Kartographie (LFK) <br/>Department of Cartography</a>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <!-- portlet_personalnews start --></td>
+        <td id="map_column" style="vertical-align: top">
+          <div id="google_map" style="width:100%; height:100%"></div>
+<%#*<div id="bing_map" class="mapstraction" style="display:none; width:100%; height:100%" ></div>%>
+          <div id="osm_map" style="display:none; width:100%; height:100%"></div>
+          <div id="um_map" class="tundra" style="width:100%; height:100%"></div>
+        </td>
+      </tr>
+      <tr>
+        <td style="height:19px; background-color: #dfd5cc" colspan="2">
+          <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td id="footer"> &copy;TUM 2003-2009 Technische Universit&auml;t M&uuml;nchen  - Institut f&uuml;r Photogrammetrie und Kartographie          </td>
+              <td id="statebar"><span id="coordinates" style="float:right"></span></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

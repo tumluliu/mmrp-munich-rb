@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  edge_id: 
+  from_id: 
+  to_id: 
+  length: 
+  speed_factor: 
+  mode_id: 
+
+two:
+  edge_id: 
+  from_id: 
+  to_id: 
+  length: 
+  speed_factor: 
+  mode_id: 

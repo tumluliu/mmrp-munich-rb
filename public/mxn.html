@@ -1,0 +1,887 @@
+<!--
+  copyright (c) 2009 Google inc.
+
+  You are free to copy and use this sample.
+  License can be found here: http://code.google.com/apis/ajaxsearch/faq/'#license
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Mapstraction API Sample</title>
+    <script src="http://openlayers.org/api/OpenLayers.js"></script>
+    <script type="text/javascript" charset="utf-8" src="http://mapstraction.googlecode.com/svn/trunk/source/mxn.js?(openlayers)"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAA-bNgiNC5E3qCmigVt8VJrhSJhzpCz2XvaInM_PKJZe0iAoeKkxQeufYijKS68jcc-iQT1X_UvtfuVQ"></script>
+    <script type="text/javascript" src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6"></script>
+    <script type="text/javascript" src="http://www.mapstraction.com/mapstraction-js/mapstraction.js"></script>
+    <script type="text/javascript">
+var str=window.location.href;
+var es=/v=/;
+es.exec(str);
+var right=RegExp.rightContext;
+var color_ver = right;
+
+    function poly(map) {
+    
+        map.setCenterAndZoom(new mxn.LatLonPoint(48.1879300000694,11.6121199998381), 12);
+        
+        // create a polygon object
+      
+      var polysA9 = [];
+polysA9[0] = new mxn.Polyline([new mxn.LatLonPoint(48.1822312633621,11.5992668936522), new mxn.LatLonPoint(48.1824199995833,11.5995500002323)]);
+polysA9[1] = new mxn.Polyline([new mxn.LatLonPoint(48.1824199995833,11.5995500002323), new mxn.LatLonPoint(48.1826799998821,11.6000000002998)]);
+polysA9[2] = new mxn.Polyline([new mxn.LatLonPoint(48.1826799998821,11.6000000002998), new mxn.LatLonPoint(48.1829299997197,11.6004700003902)]);
+polysA9[3] = new mxn.Polyline([new mxn.LatLonPoint(48.1829299997197,11.6004700003902), new mxn.LatLonPoint(48.1830600003187,11.6007299997896)]);
+polysA9[4] = new mxn.Polyline([new mxn.LatLonPoint(48.1830600003187,11.6007299997896), new mxn.LatLonPoint(48.1831699999955,11.6009599996043)]);
+polysA9[5] = new mxn.Polyline([new mxn.LatLonPoint(48.1831699999955,11.6009599996043), new mxn.LatLonPoint(48.1832799996722,11.6012399999261)]);
+polysA9[6] = new mxn.Polyline([new mxn.LatLonPoint(48.1832799996722,11.6012399999261), new mxn.LatLonPoint(48.1834900003632,11.6017999996702)]);
+polysA9[7] = new mxn.Polyline([new mxn.LatLonPoint(48.1834900003632,11.6017999996702), new mxn.LatLonPoint(48.1836800001319,11.6023800003367)]);
+polysA9[8] = new mxn.Polyline([new mxn.LatLonPoint(48.1836800001319,11.6023800003367), new mxn.LatLonPoint(48.1837699997856,11.6026799997821)]);
+polysA9[9] = new mxn.Polyline([new mxn.LatLonPoint(48.1837699997856,11.6026799997821), new mxn.LatLonPoint(48.1838499998776,11.6029899996887)]);
+polysA9[10] = new mxn.Polyline([new mxn.LatLonPoint(48.1838499998776,11.6029899996887), new mxn.LatLonPoint(48.1839799995773,11.6035999999401)]);
+polysA9[11] = new mxn.Polyline([new mxn.LatLonPoint(48.1839799995773,11.6035999999401), new mxn.LatLonPoint(48.1841100001764,11.6042199997532)]);
+polysA9[12] = new mxn.Polyline([new mxn.LatLonPoint(48.1841100001764,11.6042199997532), new mxn.LatLonPoint(48.1842300003142,11.6048399995663)]);
+polysA9[13] = new mxn.Polyline([new mxn.LatLonPoint(48.1842300003142,11.6048399995663), new mxn.LatLonPoint(48.1843699995758,11.6054499998176)]);
+polysA9[14] = new mxn.Polyline([new mxn.LatLonPoint(48.1843699995758,11.6054499998176), new mxn.LatLonPoint(48.1844400001059,11.6057500001623)]);
+polysA9[15] = new mxn.Polyline([new mxn.LatLonPoint(48.1844400001059,11.6057500001623), new mxn.LatLonPoint(48.1846099998516,11.6063400003907)]);
+polysA9[16] = new mxn.Polyline([new mxn.LatLonPoint(48.1846099998516,11.6063400003907), new mxn.LatLonPoint(48.1847000004047,11.6066300002743)]);
+polysA9[17] = new mxn.Polyline([new mxn.LatLonPoint(48.1847000004047,11.6066300002743), new mxn.LatLonPoint(48.1848900001734,11.6071799995573)]);
+polysA9[18] = new mxn.Polyline([new mxn.LatLonPoint(48.1848900001734,11.6071799995573), new mxn.LatLonPoint(48.1850999999650,11.6077200001778)]);
+polysA9[19] = new mxn.Polyline([new mxn.LatLonPoint(48.1850999999650,11.6077200001778), new mxn.LatLonPoint(48.1854299998946,11.6085000001748)]);
+polysA9[20] = new mxn.Polyline([new mxn.LatLonPoint(48.1854299998946,11.6085000001748), new mxn.LatLonPoint(48.1856500001473,11.6089599998041)]);
+polysA9[21] = new mxn.Polyline([new mxn.LatLonPoint(48.1856500001473,11.6089599998041), new mxn.LatLonPoint(48.1858699941049,11.6093999886186)]);
+polysA9[22] = new mxn.Polyline([new mxn.LatLonPoint(48.1858699941049,11.6093999886186), new mxn.LatLonPoint(48.1858699977022,11.6093999958131)]);
+polysA9[23] = new mxn.Polyline([new mxn.LatLonPoint(48.1858699977022,11.6093999958131), new mxn.LatLonPoint(48.1858700004002,11.6094000003097)]);
+polysA9[24] = new mxn.Polyline([new mxn.LatLonPoint(48.1858700004002,11.6094000003097), new mxn.LatLonPoint(48.1860299996847,11.6096599997092)]);
+polysA9[25] = new mxn.Polyline([new mxn.LatLonPoint(48.1860299996847,11.6096599997092), new mxn.LatLonPoint(48.1860300059799,11.6096600096017)]);
+polysA9[26] = new mxn.Polyline([new mxn.LatLonPoint(48.1860300059799,11.6096600096017), new mxn.LatLonPoint(48.1861299764172,11.6098399567486)]);
+polysA9[27] = new mxn.Polyline([new mxn.LatLonPoint(48.1861299764172,11.6098399567486), new mxn.LatLonPoint(48.1861299997996,11.6098399999161)]);
+polysA9[28] = new mxn.Polyline([new mxn.LatLonPoint(48.1861299997996,11.6098399999161), new mxn.LatLonPoint(48.1863199995683,11.6101299997997)]);
+polysA9[29] = new mxn.Polyline([new mxn.LatLonPoint(48.1863199995683,11.6101299997997), new mxn.LatLonPoint(48.1865999998901,11.6105500002823)]);
+polysA9[30] = new mxn.Polyline([new mxn.LatLonPoint(48.1865999998901,11.6105500002823), new mxn.LatLonPoint(48.1869000002348,11.6109499998426)]);
+polysA9[31] = new mxn.Polyline([new mxn.LatLonPoint(48.1869000002348,11.6109499998426), new mxn.LatLonPoint(48.1871500000724,11.6112700002103)]);
+polysA9[32] = new mxn.Polyline([new mxn.LatLonPoint(48.1871500000724,11.6112700002103), new mxn.LatLonPoint(48.1872900002333,11.6114300003942)]);
+polysA9[33] = new mxn.Polyline([new mxn.LatLonPoint(48.1872900002333,11.6114300003942), new mxn.LatLonPoint(48.1872900290116,11.6114300309711)]);
+polysA9[34] = new mxn.Polyline([new mxn.LatLonPoint(48.1872900290116,11.6114300309711), new mxn.LatLonPoint(48.1879300000694,11.6121199998381)]);
+polysA9[35] = new mxn.Polyline([new mxn.LatLonPoint(48.1879300000694,11.6121199998381), new mxn.LatLonPoint(48.1882599999990,11.6124299997447)]);
+polysA9[36] = new mxn.Polyline([new mxn.LatLonPoint(48.1882599999990,11.6124299997447), new mxn.LatLonPoint(48.1882600305759,11.6124300249257)]);
+polysA9[37] = new mxn.Polyline([new mxn.LatLonPoint(48.1882600305759,11.6124300249257), new mxn.LatLonPoint(48.1884699997906,11.6126000003897)]);
+polysA9[38] = new mxn.Polyline([new mxn.LatLonPoint(48.1884699997906,11.6126000003897), new mxn.LatLonPoint(48.1888599997891,11.6129199998581)]);
+polysA9[39] = new mxn.Polyline([new mxn.LatLonPoint(48.1888599997891,11.6129199998581), new mxn.LatLonPoint(48.1891899997187,11.6131400001109)]);
+polysA9[40] = new mxn.Polyline([new mxn.LatLonPoint(48.1891899997187,11.6131400001109), new mxn.LatLonPoint(48.1893099800715,11.6132299853755)]);
+polysA9[41] = new mxn.Polyline([new mxn.LatLonPoint(48.1893099800715,11.6132299853755), new mxn.LatLonPoint(48.1893099899640,11.6132299925701)]);
+polysA9[42] = new mxn.Polyline([new mxn.LatLonPoint(48.1893099899640,11.6132299925701), new mxn.LatLonPoint(48.1893099998566,11.6132299997647)]);
+polysA9[43] = new mxn.Polyline([new mxn.LatLonPoint(48.1893099998566,11.6132299997647), new mxn.LatLonPoint(48.1897399999011,11.6134999996253)]);
+polysA9[44] = new mxn.Polyline([new mxn.LatLonPoint(48.1897399999011,11.6134999996253), new mxn.LatLonPoint(48.1901400003607,11.6137300003392)]);
+polysA9[45] = new mxn.Polyline([new mxn.LatLonPoint(48.1901400003607,11.6137300003392), new mxn.LatLonPoint(48.1907899988593,11.6140899998536)]);
+polysA9[46] = new mxn.Polyline([new mxn.LatLonPoint(48.1907899988593,11.6140899998536), new mxn.LatLonPoint(48.1910300000345,11.6142199995533)]);
+polysA9[47] = new mxn.Polyline([new mxn.LatLonPoint(48.1910300000345,11.6142199995533), new mxn.LatLonPoint(48.1915200001479,11.6144799998521)]);
+polysA9[48] = new mxn.Polyline([new mxn.LatLonPoint(48.1915200001479,11.6144799998521), new mxn.LatLonPoint(48.1919799997771,11.6147000001049)]);
+polysA9[49] = new mxn.Polyline([new mxn.LatLonPoint(48.1919799997771,11.6147000001049), new mxn.LatLonPoint(48.1928900003732,11.6151500001724)]);
+polysA9[50] = new mxn.Polyline([new mxn.LatLonPoint(48.1928900003732,11.6151500001724), new mxn.LatLonPoint(48.1932600021474,11.6153200008173)]);
+polysA9[51] = new mxn.Polyline([new mxn.LatLonPoint(48.1932600021474,11.6153200008173), new mxn.LatLonPoint(48.1932600111406,11.6153200053140)]);
+polysA9[52] = new mxn.Polyline([new mxn.LatLonPoint(48.1932600111406,11.6153200053140), new mxn.LatLonPoint(48.1933620239382,11.6153680111248)]);
+polysA9[53] = new mxn.Polyline([new mxn.LatLonPoint(48.1933620239382,11.6153680111248), new mxn.LatLonPoint(48.1935999998401,11.6154800001019)]);
+polysA9[54] = new mxn.Polyline([new mxn.LatLonPoint(48.1935999998401,11.6154800001019), new mxn.LatLonPoint(48.1938899997237,11.6156299998246)]);
+polysA9[55] = new mxn.Polyline([new mxn.LatLonPoint(48.1938899997237,11.6156299998246), new mxn.LatLonPoint(48.1941399995613,11.6157600004237)]);
+polysA9[56] = new mxn.Polyline([new mxn.LatLonPoint(48.1941399995613,11.6157600004237), new mxn.LatLonPoint(48.1950500001574,11.6162000000299)]);
+polysA9[57] = new mxn.Polyline([new mxn.LatLonPoint(48.1950500001574,11.6162000000299), new mxn.LatLonPoint(48.1956800004317,11.6165099999365)]);
+polysA9[58] = new mxn.Polyline([new mxn.LatLonPoint(48.1956800004317,11.6165099999365), new mxn.LatLonPoint(48.1959399998311,11.6166399996363)]);
+polysA9[59] = new mxn.Polyline([new mxn.LatLonPoint(48.1959399998311,11.6166399996363), new mxn.LatLonPoint(48.1965100000364,11.6169199999580)]);
+polysA9[60] = new mxn.Polyline([new mxn.LatLonPoint(48.1965100000364,11.6169199999580), new mxn.LatLonPoint(48.1967700003352,11.6170400000959)]);
+polysA9[61] = new mxn.Polyline([new mxn.LatLonPoint(48.1967700003352,11.6170400000959), new mxn.LatLonPoint(48.1978400002158,11.6175599997941)]);
+polysA9[62] = new mxn.Polyline([new mxn.LatLonPoint(48.1978400002158,11.6175599997941), new mxn.LatLonPoint(48.1983200070626,11.6177800036442)]);
+polysA9[63] = new mxn.Polyline([new mxn.LatLonPoint(48.1983200070626,11.6177800036442), new mxn.LatLonPoint(48.1984100004212,11.6178299996548)]);
+polysA9[64] = new mxn.Polyline([new mxn.LatLonPoint(48.1984100004212,11.6178299996548), new mxn.LatLonPoint(48.1987058764750,11.6179683927271)]);
+polysA9[65] = new mxn.Polyline([new mxn.LatLonPoint(48.1987058764750,11.6179683927271), new mxn.LatLonPoint(48.1990300002343,11.6181200004377)]);
+polysA9[66] = new mxn.Polyline([new mxn.LatLonPoint(48.1990300002343,11.6181200004377), new mxn.LatLonPoint(48.1998100002313,11.6184900004131)]);
+polysA9[67] = new mxn.Polyline([new mxn.LatLonPoint(48.1998100002313,11.6184900004131), new mxn.LatLonPoint(48.2001400001608,11.6186400001359)]);
+polysA9[68] = new mxn.Polyline([new mxn.LatLonPoint(48.2001400001608,11.6186400001359), new mxn.LatLonPoint(48.2007100003662,11.6189199995583)]);
+polysA9[69] = new mxn.Polyline([new mxn.LatLonPoint(48.2007100003662,11.6189199995583), new mxn.LatLonPoint(48.2010200002728,11.6190700001803)]);
+polysA9[70] = new mxn.Polyline([new mxn.LatLonPoint(48.2010200002728,11.6190700001803), new mxn.LatLonPoint(48.2016699996707,11.6193899996488)]);
+    
+      var i = 0;
+			var A9colors_v1 = [
+'#B4B4B4',
+'#B3B3B3',
+'#B2B2B2',
+'#B0B0B0',
+'#AFAFAF',
+'#AEAEAE',
+'#ADADAD',
+'#ABABAB',
+'#AAAAAA',
+'#A9A9A9',
+'#A8A8A8',
+'#A6A6A6',
+'#A5A5A5',
+'#A4A4A4',
+'#A3A3A3',
+'#A1A1A1',
+'#A0A0A0',
+'#9F9F9F',
+'#9E9E9E',
+'#9C9C9C',
+'#9B9B9B',
+'#9A9A9A',
+'#999999',
+'#979797',
+'#969696',
+'#959595',
+'#949494',
+'#929292',
+'#919191',
+'#909090',
+'#8F8F8F',
+'#8D8D8D',
+'#8D8D8D',
+'#909090',
+'#939393',
+'#969696',
+'#999999',
+'#9C9C9C',
+'#9F9F9F',
+'#A2A2A2',
+'#A5A5A5',
+'#A8A8A8',
+'#ABABAB',
+'#AEAEAE',
+'#B1B1B1',
+'#B4B4B4',
+'#B7B7B7',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6',
+'#B6B6B6'];
+
+var A9colors_v2 = [
+'#A0A0A0',
+'#9E9E9E',
+'#9B9B9B',
+'#999999',
+'#969696',
+'#949494',
+'#919191',
+'#8F8F8F',
+'#8C8C8C',
+'#8A8A8A',
+'#878787',
+'#858585',
+'#828282',
+'#808080',
+'#7D7D7D',
+'#7B7B7B',
+'#787878',
+'#767676',
+'#737373',
+'#717171',
+'#6E6E6E',
+'#6C6C6C',
+'#696969',
+'#676767',
+'#646464',
+'#626262',
+'#5F5F5F',
+'#5D5D5D',
+'#5A5A5A',
+'#585858',
+'#555555',
+'#535353',
+'#535353',
+'#595959',
+'#5F5F5F',
+'#656565',
+'#6B6B6B',
+'#717171',
+'#777777',
+'#7D7D7D',
+'#838383',
+'#898989',
+'#8F8F8F',
+'#959595',
+'#9B9B9B',
+'#A1A1A1',
+'#A7A7A7',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8',
+'#A8A8A8'];
+
+var A9colors_v3 = [
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000'];
+
+var polysFrankfurtRing = [];
+polysFrankfurtRing[0] = new mxn.Polyline([new mxn.LatLonPoint(48.1862699999605,11.6089100001963), new mxn.LatLonPoint(48.1862899999835,11.6092600001489)]);
+polysFrankfurtRing[1] = new mxn.Polyline([new mxn.LatLonPoint(48.1862899999835,11.6092600001489), new mxn.LatLonPoint(48.1863399995913,11.6095799996173)]);
+polysFrankfurtRing[2] = new mxn.Polyline([new mxn.LatLonPoint(48.1863399995913,11.6095799996173), new mxn.LatLonPoint(48.1864100001214,11.6098500003772)]);
+polysFrankfurtRing[3] = new mxn.Polyline([new mxn.LatLonPoint(48.1864100001214,11.6098500003772), new mxn.LatLonPoint(48.1862699999605,11.6084699996907)]);
+polysFrankfurtRing[4] = new mxn.Polyline([new mxn.LatLonPoint(48.1862699999605,11.6084699996907), new mxn.LatLonPoint(48.1863300000294,11.6079499999925)]);
+polysFrankfurtRing[5] = new mxn.Polyline([new mxn.LatLonPoint(48.1863300000294,11.6079499999925), new mxn.LatLonPoint(48.1865399998211,11.6060099995618)]);
+polysFrankfurtRing[6] = new mxn.Polyline([new mxn.LatLonPoint(48.1865399998211,11.6060099995618), new mxn.LatLonPoint(48.1867299995898,11.6043700003752)]);
+polysFrankfurtRing[7] = new mxn.Polyline([new mxn.LatLonPoint(48.1867299995898,11.6043700003752), new mxn.LatLonPoint(48.1869200002578,11.6025500000824)]);
+polysFrankfurtRing[8] = new mxn.Polyline([new mxn.LatLonPoint(48.1869200002578,11.6025500000824), new mxn.LatLonPoint(48.1871300000494,11.6007000002048)]);
+polysFrankfurtRing[9] = new mxn.Polyline([new mxn.LatLonPoint(48.1871300000494,11.6007000002048), new mxn.LatLonPoint(48.1874100003712,11.5981700004451)]);
+polysFrankfurtRing[10] = new mxn.Polyline([new mxn.LatLonPoint(48.1874100003712,11.5981700004451), new mxn.LatLonPoint(48.1876517867006,11.5959474384235)]);
+polysFrankfurtRing[11] = new mxn.Polyline([new mxn.LatLonPoint(48.1876517867006,11.5959474384235), new mxn.LatLonPoint(48.1876699997707,11.5957799999470)]);
+polysFrankfurtRing[12] = new mxn.Polyline([new mxn.LatLonPoint(48.1876699997707,11.5957799999470), new mxn.LatLonPoint(48.1877699998856,11.5947599996742)]);
+polysFrankfurtRing[13] = new mxn.Polyline([new mxn.LatLonPoint(48.1877699998856,11.5947599996742), new mxn.LatLonPoint(48.1878600004387,11.5938000003697)]);
+polysFrankfurtRing[14] = new mxn.Polyline([new mxn.LatLonPoint(48.1878600004387,11.5938000003697), new mxn.LatLonPoint(48.1879500000924,11.5925500002823)]);
+polysFrankfurtRing[15] = new mxn.Polyline([new mxn.LatLonPoint(48.1879500000924,11.5925500002823), new mxn.LatLonPoint(48.1879900001384,11.5916199996632)]);
+polysFrankfurtRing[16] = new mxn.Polyline([new mxn.LatLonPoint(48.1879900001384,11.5916199996632), new mxn.LatLonPoint(48.1879900001384,11.5911600000339)]);
+polysFrankfurtRing[17] = new mxn.Polyline([new mxn.LatLonPoint(48.1879900001384,11.5911600000339), new mxn.LatLonPoint(48.1879799996772,11.5882299998146)]);
+polysFrankfurtRing[18] = new mxn.Polyline([new mxn.LatLonPoint(48.1879799996772,11.5882299998146), new mxn.LatLonPoint(48.1879900001384,11.5876300000245)]);
+polysFrankfurtRing[19] = new mxn.Polyline([new mxn.LatLonPoint(48.1879900001384,11.5876300000245), new mxn.LatLonPoint(48.1879900001384,11.5872499995878)]);
+polysFrankfurtRing[20] = new mxn.Polyline([new mxn.LatLonPoint(48.1879900001384,11.5872499995878), new mxn.LatLonPoint(48.1879900001384,11.5868200004426)]);
+polysFrankfurtRing[21] = new mxn.Polyline([new mxn.LatLonPoint(48.1879900001384,11.5868200004426), new mxn.LatLonPoint(48.1879300000694,11.5858800002618)]);
+polysFrankfurtRing[22] = new mxn.Polyline([new mxn.LatLonPoint(48.1879300000694,11.5858800002618), new mxn.LatLonPoint(48.1878999995853,11.5848599999890)]);
+polysFrankfurtRing[23] = new mxn.Polyline([new mxn.LatLonPoint(48.1878999995853,11.5848599999890), new mxn.LatLonPoint(48.1878999995853,11.5848599945930)]);
+polysFrankfurtRing[24] = new mxn.Polyline([new mxn.LatLonPoint(48.1878999995853,11.5848599945930), new mxn.LatLonPoint(48.1878900000235,11.5844999995753)]);
+polysFrankfurtRing[25] = new mxn.Polyline([new mxn.LatLonPoint(48.1878900000235,11.5844999995753), new mxn.LatLonPoint(48.1878899973255,11.5844999456160)]);
+polysFrankfurtRing[26] = new mxn.Polyline([new mxn.LatLonPoint(48.1878899973255,11.5844999456160), new mxn.LatLonPoint(48.1878799995623,11.5843000002448)]);
+
+var FrankfurtRingcolors_v1 = [
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#BEBEBE',
+'#BEBEBE',
+'#BEBEBE',
+'#BEBEBE',
+'#BEBEBE',
+'#BEBEBE',
+'#BEBEBE',
+'#BEBEBE',
+'#BEBEBE',
+'#BEBEBE',
+'#BEBEBE',
+'#BEBEBE',
+'#BEBEBE'];
+
+var FrankfurtRingcolors_v2 = [
+'#727272',
+'#727272',
+'#727272',
+'#727272',
+'#727272',
+'#727272',
+'#727272',
+'#727272',
+'#727272',
+'#727272',
+'#727272',
+'#727272',
+'#727272',
+'#727272',
+'#727272',
+'#767676',
+'#767676',
+'#767676',
+'#767676',
+'#767676',
+'#767676',
+'#767676',
+'#767676',
+'#767676',
+'#767676',
+'#767676',
+'#767676',
+'#767676'];
+
+var FrankfurtRingcolors_v3 = [
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000'];
+
+var polysHeidermanstr = [];
+polysHeidermanstr[0] = new mxn.Polyline([new mxn.LatLonPoint(48.1981700001454,11.6185800000669), new mxn.LatLonPoint(48.1981700001454,11.6184900004131)]);
+polysHeidermanstr[1] = new mxn.Polyline([new mxn.LatLonPoint(48.1981700001454,11.6184900004131), new mxn.LatLonPoint(48.1982899984846,11.6179600092470)]);
+polysHeidermanstr[2] = new mxn.Polyline([new mxn.LatLonPoint(48.1982899984846,11.6179600092470), new mxn.LatLonPoint(48.1983200016667,11.6177800009463)]);
+polysHeidermanstr[3] = new mxn.Polyline([new mxn.LatLonPoint(48.1983200016667,11.6177800009463), new mxn.LatLonPoint(48.1984400000060,11.6172600003487)]);
+polysHeidermanstr[4] = new mxn.Polyline([new mxn.LatLonPoint(48.1984400000060,11.6172600003487), new mxn.LatLonPoint(48.1988200004427,11.6155899997786)]);
+polysHeidermanstr[5] = new mxn.Polyline([new mxn.LatLonPoint(48.1988200004427,11.6155899997786), new mxn.LatLonPoint(48.1991199998881,11.6142700000605)]);
+polysHeidermanstr[6] = new mxn.Polyline([new mxn.LatLonPoint(48.1991199998881,11.6142700000605), new mxn.LatLonPoint(48.1993800001868,11.6130199999730)]);
+polysHeidermanstr[7] = new mxn.Polyline([new mxn.LatLonPoint(48.1993800001868,11.6130199999730), new mxn.LatLonPoint(48.1996700000704,11.6114199999330)]);
+polysHeidermanstr[8] = new mxn.Polyline([new mxn.LatLonPoint(48.1996700000704,11.6114199999330), new mxn.LatLonPoint(48.1996900000934,11.6112999997952)]);
+polysHeidermanstr[9] = new mxn.Polyline([new mxn.LatLonPoint(48.1996900000934,11.6112999997952), new mxn.LatLonPoint(48.1999018623810,11.6098699896083)]);
+polysHeidermanstr[10] = new mxn.Polyline([new mxn.LatLonPoint(48.1999018623810,11.6098699896083), new mxn.LatLonPoint(48.2000899996538,11.6086000002898)]);
+polysHeidermanstr[11] = new mxn.Polyline([new mxn.LatLonPoint(48.2000899996538,11.6086000002898), new mxn.LatLonPoint(48.2001899997687,11.6079200004077)]);
+polysHeidermanstr[12] = new mxn.Polyline([new mxn.LatLonPoint(48.2001899997687,11.6079200004077), new mxn.LatLonPoint(48.2002499998376,11.6075399999710)]);
+polysHeidermanstr[13] = new mxn.Polyline([new mxn.LatLonPoint(48.2002499998376,11.6075399999710), new mxn.LatLonPoint(48.2003444628266,11.6068630370995)]);
+polysHeidermanstr[14] = new mxn.Polyline([new mxn.LatLonPoint(48.2003444628266,11.6068630370995), new mxn.LatLonPoint(48.2004359328720,11.6062074969784)]);
+polysHeidermanstr[15] = new mxn.Polyline([new mxn.LatLonPoint(48.2004359328720,11.6062074969784), new mxn.LatLonPoint(48.2004900001134,11.6058199997931)]);
+polysHeidermanstr[16] = new mxn.Polyline([new mxn.LatLonPoint(48.2004900001134,11.6058199997931), new mxn.LatLonPoint(48.2004999996752,11.6056999996553)]);
+polysHeidermanstr[17] = new mxn.Polyline([new mxn.LatLonPoint(48.2004999996752,11.6056999996553), new mxn.LatLonPoint(48.2005700002053,11.6050999998651)]);
+polysHeidermanstr[18] = new mxn.Polyline([new mxn.LatLonPoint(48.2005700002053,11.6050999998651), new mxn.LatLonPoint(48.2006500002972,11.6043900003982)]);
+polysHeidermanstr[19] = new mxn.Polyline([new mxn.LatLonPoint(48.2006500002972,11.6043900003982), new mxn.LatLonPoint(48.2007100003662,11.6038899998236)]);
+polysHeidermanstr[20] = new mxn.Polyline([new mxn.LatLonPoint(48.2007100003662,11.6038899998236), new mxn.LatLonPoint(48.2007399999510,11.6035999999401)]);
+polysHeidermanstr[21] = new mxn.Polyline([new mxn.LatLonPoint(48.2007399999510,11.6035999999401), new mxn.LatLonPoint(48.2008299996048,11.6027399998511)]);
+polysHeidermanstr[22] = new mxn.Polyline([new mxn.LatLonPoint(48.2008299996048,11.6027399998511), new mxn.LatLonPoint(48.2009000001349,11.6021499996228)]);
+polysHeidermanstr[23] = new mxn.Polyline([new mxn.LatLonPoint(48.2009000001349,11.6021499996228), new mxn.LatLonPoint(48.2014300002942,11.5979799997772)]);
+polysHeidermanstr[24] = new mxn.Polyline([new mxn.LatLonPoint(48.2014300002942,11.5979799997772), new mxn.LatLonPoint(48.2016099996018,11.5964999998751)]);
+polysHeidermanstr[25] = new mxn.Polyline([new mxn.LatLonPoint(48.2016099996018,11.5964999998751), new mxn.LatLonPoint(48.2017099997167,11.5956999998551)]);
+polysHeidermanstr[26] = new mxn.Polyline([new mxn.LatLonPoint(48.2017099997167,11.5956999998551), new mxn.LatLonPoint(48.2017699997857,11.5950499995578)]);
+polysHeidermanstr[27] = new mxn.Polyline([new mxn.LatLonPoint(48.2017699997857,11.5950499995578), new mxn.LatLonPoint(48.2017600002238,11.5944400002059)]);
+polysHeidermanstr[28] = new mxn.Polyline([new mxn.LatLonPoint(48.2017600002238,11.5944400002059), new mxn.LatLonPoint(48.2016800001319,11.5935000000250)]);
+polysHeidermanstr[29] = new mxn.Polyline([new mxn.LatLonPoint(48.2016800001319,11.5935000000250), new mxn.LatLonPoint(48.2015399999710,11.5921800003068)]);
+polysHeidermanstr[30] = new mxn.Polyline([new mxn.LatLonPoint(48.2015399999710,11.5921800003068), new mxn.LatLonPoint(48.2015699995558,11.5920600001689)]);
+polysHeidermanstr[31] = new mxn.Polyline([new mxn.LatLonPoint(48.2015699995558,11.5920600001689), new mxn.LatLonPoint(48.2014672403209,11.5909766642416)]);
+polysHeidermanstr[32] = new mxn.Polyline([new mxn.LatLonPoint(48.2014672403209,11.5909766642416), new mxn.LatLonPoint(48.2013724904480,11.5899778663854)]);
+polysHeidermanstr[33] = new mxn.Polyline([new mxn.LatLonPoint(48.2013724904480,11.5899778663854), new mxn.LatLonPoint(48.2013300001793,11.5895300004092)]);
+polysHeidermanstr[34] = new mxn.Polyline([new mxn.LatLonPoint(48.2013300001793,11.5895300004092), new mxn.LatLonPoint(48.2012918005761,11.5890813421302)]);
+polysHeidermanstr[35] = new mxn.Polyline([new mxn.LatLonPoint(48.2012918005761,11.5890813421302), new mxn.LatLonPoint(48.2011895269750,11.5878802327865)]);
+polysHeidermanstr[36] = new mxn.Polyline([new mxn.LatLonPoint(48.2011895269750,11.5878802327865), new mxn.LatLonPoint(48.2009800002268,11.5854199997332)]);
+
+var Heidermanstrcolors_v1 = [
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#B9B9B9',
+'#C4C4C4',
+'#C4C4C4',
+'#C4C4C4',
+'#C4C4C4',
+'#C4C4C4',
+'#C4C4C4',
+'#C4C4C4',
+'#C4C4C4',
+'#C4C4C4'];
+
+var Heidermanstrcolors_v2 = [
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#757575',
+'#757575',
+'#757575',
+'#757575',
+'#757575',
+'#757575',
+'#757575',
+'#757575',
+'#757575'];
+
+var Heidermanstrcolors_v3 = [
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000'];
+
+var polysIngolstaetstr = [];
+polysIngolstaetstr[0] = new mxn.Polyline([new mxn.LatLonPoint(48.1817300001394,11.5849699996658), new mxn.LatLonPoint(48.1819249677631,11.5849517928909)]);
+polysIngolstaetstr[1] = new mxn.Polyline([new mxn.LatLonPoint(48.1819249677631,11.5849517928909), new mxn.LatLonPoint(48.1819271423237,11.5849515896441)]);
+polysIngolstaetstr[2] = new mxn.Polyline([new mxn.LatLonPoint(48.1819271423237,11.5849515896441), new mxn.LatLonPoint(48.1842999999450,11.5847300002893)]);
+polysIngolstaetstr[3] = new mxn.Polyline([new mxn.LatLonPoint(48.1842999999450,11.5847300002893), new mxn.LatLonPoint(48.1863900000984,11.5845599996442)]);
+polysIngolstaetstr[4] = new mxn.Polyline([new mxn.LatLonPoint(48.1863900000984,11.5845599996442), new mxn.LatLonPoint(48.1865500002822,11.5845599996442)]);
+polysIngolstaetstr[5] = new mxn.Polyline([new mxn.LatLonPoint(48.1865500002822,11.5845599996442), new mxn.LatLonPoint(48.1868600001889,11.5845500000824)]);
+polysIngolstaetstr[6] = new mxn.Polyline([new mxn.LatLonPoint(48.1868600001889,11.5845500000824), new mxn.LatLonPoint(48.1878200003927,11.5844999995753)]);
+polysIngolstaetstr[7] = new mxn.Polyline([new mxn.LatLonPoint(48.1878200003927,11.5844999995753), new mxn.LatLonPoint(48.1879799996772,11.5844900000135)]);
+polysIngolstaetstr[8] = new mxn.Polyline([new mxn.LatLonPoint(48.1879799996772,11.5844900000135), new mxn.LatLonPoint(48.1891299996498,11.5843800003368)]);
+polysIngolstaetstr[9] = new mxn.Polyline([new mxn.LatLonPoint(48.1891299996498,11.5843800003368), new mxn.LatLonPoint(48.1894000004096,11.5843499998526)]);
+polysIngolstaetstr[10] = new mxn.Polyline([new mxn.LatLonPoint(48.1894000004096,11.5843499998526), new mxn.LatLonPoint(48.1904900003132,11.5842499997377)]);
+polysIngolstaetstr[11] = new mxn.Polyline([new mxn.LatLonPoint(48.1904900003132,11.5842499997377), new mxn.LatLonPoint(48.1907299897971,11.5842300006140)]);
+polysIngolstaetstr[12] = new mxn.Polyline([new mxn.LatLonPoint(48.1907299897971,11.5842300006140), new mxn.LatLonPoint(48.1907299996897,11.5842299997147)]);
+polysIngolstaetstr[13] = new mxn.Polyline([new mxn.LatLonPoint(48.1907299996897,11.5842299997147), new mxn.LatLonPoint(48.1911599997342,11.5842000001299)]);
+polysIngolstaetstr[14] = new mxn.Polyline([new mxn.LatLonPoint(48.1911599997342,11.5842000001299), new mxn.LatLonPoint(48.1924299998446,11.5841000000150)]);
+polysIngolstaetstr[15] = new mxn.Polyline([new mxn.LatLonPoint(48.1924299998446,11.5841000000150), new mxn.LatLonPoint(48.1927100001664,11.5841000000150)]);
+polysIngolstaetstr[16] = new mxn.Polyline([new mxn.LatLonPoint(48.1927100001664,11.5841000000150), new mxn.LatLonPoint(48.1931400002108,11.5840799999920)]);
+polysIngolstaetstr[17] = new mxn.Polyline([new mxn.LatLonPoint(48.1931400002108,11.5840799999920), new mxn.LatLonPoint(48.1934199996333,11.5840799999920)]);
+polysIngolstaetstr[18] = new mxn.Polyline([new mxn.LatLonPoint(48.1934199996333,11.5840799999920), new mxn.LatLonPoint(48.1936100003012,11.5840899995538)]);
+polysIngolstaetstr[19] = new mxn.Polyline([new mxn.LatLonPoint(48.1936100003012,11.5840899995538), new mxn.LatLonPoint(48.1937100004162,11.5840899995538)]);
+polysIngolstaetstr[20] = new mxn.Polyline([new mxn.LatLonPoint(48.1937100004162,11.5840899995538), new mxn.LatLonPoint(48.1938400001159,11.5841000000150)]);
+polysIngolstaetstr[21] = new mxn.Polyline([new mxn.LatLonPoint(48.1938400001159,11.5841000000150), new mxn.LatLonPoint(48.1940000002998,11.5841099995768)]);
+polysIngolstaetstr[22] = new mxn.Polyline([new mxn.LatLonPoint(48.1940000002998,11.5841099995768), new mxn.LatLonPoint(48.1944700003902,11.5841699996458)]);
+polysIngolstaetstr[23] = new mxn.Polyline([new mxn.LatLonPoint(48.1944700003902,11.5841699996458), new mxn.LatLonPoint(48.1951100002263,11.5842800002218)]);
+polysIngolstaetstr[24] = new mxn.Polyline([new mxn.LatLonPoint(48.1951100002263,11.5842800002218), new mxn.LatLonPoint(48.1954499997177,11.5843299998296)]);
+polysIngolstaetstr[25] = new mxn.Polyline([new mxn.LatLonPoint(48.1954499997177,11.5843299998296), new mxn.LatLonPoint(48.1957700000854,11.5843899998986)]);
+polysIngolstaetstr[26] = new mxn.Polyline([new mxn.LatLonPoint(48.1957700000854,11.5843899998986), new mxn.LatLonPoint(48.1974599997791,11.5847100002663)]);
+polysIngolstaetstr[27] = new mxn.Polyline([new mxn.LatLonPoint(48.1974599997791,11.5847100002663), new mxn.LatLonPoint(48.1982500002373,11.5848599999890)]);
+polysIngolstaetstr[28] = new mxn.Polyline([new mxn.LatLonPoint(48.1982500002373,11.5848599999890), new mxn.LatLonPoint(48.1992400000260,11.5850600002188)]);
+polysIngolstaetstr[29] = new mxn.Polyline([new mxn.LatLonPoint(48.1992400000260,11.5850600002188), new mxn.LatLonPoint(48.2009800002268,11.5854199997332)]);
+polysIngolstaetstr[30] = new mxn.Polyline([new mxn.LatLonPoint(48.2009800002268,11.5854199997332), new mxn.LatLonPoint(48.2025800002668,11.5857000000549)]);
+polysIngolstaetstr[31] = new mxn.Polyline([new mxn.LatLonPoint(48.2025800002668,11.5857000000549), new mxn.LatLonPoint(48.2029100001963,11.5857699996857)]);
+polysIngolstaetstr[32] = new mxn.Polyline([new mxn.LatLonPoint(48.2029100001963,11.5857699996857), new mxn.LatLonPoint(48.2032800001718,11.5858400002158)]);
+polysIngolstaetstr[33] = new mxn.Polyline([new mxn.LatLonPoint(48.2032800001718,11.5858400002158), new mxn.LatLonPoint(48.2034400003557,11.5858800002618)]);
+polysIngolstaetstr[34] = new mxn.Polyline([new mxn.LatLonPoint(48.2034400003557,11.5858800002618), new mxn.LatLonPoint(48.2038900004231,11.5859600003537)]);
+polysIngolstaetstr[35] = new mxn.Polyline([new mxn.LatLonPoint(48.2038900004231,11.5859600003537), new mxn.LatLonPoint(48.2044399997062,11.5860700000305)]);
+polysIngolstaetstr[36] = new mxn.Polyline([new mxn.LatLonPoint(48.2044399997062,11.5860700000305), new mxn.LatLonPoint(48.2048099996817,11.5861500001224)]);
+polysIngolstaetstr[37] = new mxn.Polyline([new mxn.LatLonPoint(48.2048099996817,11.5861500001224), new mxn.LatLonPoint(48.2051799996572,11.5862199997532)]);
+polysIngolstaetstr[38] = new mxn.Polyline([new mxn.LatLonPoint(48.2051799996572,11.5862199997532), new mxn.LatLonPoint(48.2053700003252,11.5862599997992)]);
+polysIngolstaetstr[39] = new mxn.Polyline([new mxn.LatLonPoint(48.2053700003252,11.5862599997992), new mxn.LatLonPoint(48.2056299997247,11.5863100003062)]);
+
+var Ingolstaetstrcolors_v1 = [
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#A0A0A0',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA',
+'#AAAAAA'];
+
+var Ingolstaetstrcolors_v2 = [
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#7D7D7D',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E',
+'#8E8E8E'];
+
+var Ingolstaetstrcolors_v3 = [
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000',
+'#000000'];
+
+      for (i = 0; i < 71; i++)
+      {
+        polysA9[i].setWidth(8);
+				switch(color_ver)
+				{
+					case '1':
+		        polysA9[i].setColor(A9colors_v1[i]);
+						break;
+					case '2':
+						polysA9[i].setColor(A9colors_v2[i]);
+						break;
+					case '3':
+						polysA9[i].setColor(A9colors_v3[i]);
+						break;
+					default:
+						break;
+				}
+        polysA9[i].setOpacity(0.9);
+        map.addPolyline(polysA9[i]);
+      }
+
+			for (i = 0; i < 27; i++)
+      {
+        polysFrankfurtRing[i].setWidth(8);
+				switch(color_ver)
+				{
+					case '1':
+		        polysFrankfurtRing[i].setColor(FrankfurtRingcolors_v1[i]);
+						break;
+					case '2':
+						polysFrankfurtRing[i].setColor(FrankfurtRingcolors_v2[i]);
+						break;
+					case '3':
+						polysFrankfurtRing[i].setColor(FrankfurtRingcolors_v3[i]);
+						break;
+					default:
+						break;
+				}
+        polysFrankfurtRing[i].setOpacity(0.9);
+        map.addPolyline(polysFrankfurtRing[i]);
+      }
+
+			for (i = 0; i < 37; i++)
+      {
+        polysHeidermanstr[i].setWidth(8);
+				switch(color_ver)
+				{
+					case '1':
+		        polysHeidermanstr[i].setColor(Heidermanstrcolors_v1[i]);
+						break;
+					case '2':
+						polysHeidermanstr[i].setColor(Heidermanstrcolors_v2[i]);
+						break;
+					case '3':
+						polysHeidermanstr[i].setColor(Heidermanstrcolors_v3[i]);
+						break;
+					default:
+						break;
+				}
+        polysHeidermanstr[i].setOpacity(0.9);
+        map.addPolyline(polysHeidermanstr[i]);
+      }
+
+			for (i = 0; i < 40; i++)
+      {
+        polysIngolstaetstr[i].setWidth(8);
+				switch(color_ver)
+				{
+					case '1':
+		        polysIngolstaetstr[i].setColor(Ingolstaetstrcolors_v1[i]);
+						break;
+					case '2':
+						polysIngolstaetstr[i].setColor(Ingolstaetstrcolors_v2[i]);
+						break;
+					case '3':
+						polysIngolstaetstr[i].setColor(Ingolstaetstrcolors_v3[i]);
+						break;
+					default:
+						break;
+				}        
+        polysIngolstaetstr[i].setOpacity(0.9);
+        map.addPolyline(polysIngolstaetstr[i]);
+      }
+
+    }
+    
+    function initialize() {
+        var gmapstraction = new mxn.Mapstraction('map_canvas','microsoft');
+        poly(gmapstraction);    
+				gmapstraction.addControls({
+          pan: true,
+          zoom: 'large',
+          map_type: true
+        });
+    }
+
+		function changeToMapView(map_div, provider)
+		{
+      mapstraction.swap(map_div, provider);
+		}
+
+
+    </script>
+  </head>
+  <body onload="initialize()" style="font-family: Arial;border: 0 none;">
+    <div id="map_canvas" style="width: 100%; height: 700px"></div>
+<!--		<div id="map_select">
+			<input type="radio" name="api" value="google" CHECKED onClick="changeToMapView('google_map', 'google')"> Google<br/>
+			<input type="radio" name="api" value="microsoft" onClick="changeToMapView('bing_map','microsoft')"> Microsoft<br/>
+			<input type="radio" name="api" value="openstreetmap" onClick="changeToMapView('osm_map','openstreetmap')"> OpenStreetMap<br/>
+		</div> -->
+  </body>
+</html>

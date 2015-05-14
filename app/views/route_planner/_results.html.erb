@@ -1,0 +1,242 @@
+<html>
+  <head>
+    <title>routing results</title>
+    <script type="text/javascript">
+      var selectedPathIndex = -1;
+<% 0.upto(@result_list.length - 1) do |i| %>
+    Event.observe("<%='path_' + i.to_s %>", "click",
+    function(){
+  <% 0.upto(@result_list.length - 1) do |j| %>
+        document.getElementById("<%='path_' + j.to_s %>").bgColor = "#F5F7F6";
+  <% end %>
+      this.bgColor="#B3C9DF";
+      selectedPathIndex=<%=i %>;
+      showRoute();}
+  );
+
+    Event.observe("<%='path_' + i.to_s %>", "dblclick",
+    function(){
+  <% 0.upto(@result_list.length - 1) do |j| %>
+        document.getElementById("<%='path_' + j.to_s %>").bgColor = "#F5F7F6";
+  <% end %>
+      this.bgColor="#B3C9DF";
+      selectedPathIndex=<%=i %>;
+      showRoute();
+      mapstraction.setBounds(new BoundingBox(
+      Math.min(parseFloat(final_start['y']), parseFloat(final_end['y'])),
+      Math.min(parseFloat(final_start['x']), parseFloat(final_end['x'])),
+      Math.max(parseFloat(final_start['y']), parseFloat(final_end['y'])),
+      Math.max(parseFloat(final_start['x']), parseFloat(final_end['x']))));
+    }
+  );
+
+    Event.observe("<%='path_' + i.to_s %>", "mouseover",
+    function(){
+      if (selectedPathIndex != <%=i %>)
+      this.bgColor="#CFDDEB";}
+  );
+
+    Event.observe("<%='path_' + i.to_s %>", "mouseout",
+    function(){
+      if (selectedPathIndex != <%=i %>)
+      this.bgColor="#F5F7F6";}
+  );
+<% end %>
+
+  var final_start = <%=@final_start.the_geom.to_json%>;
+  var final_end = <%=@final_end.the_geom.to_json%>;
+  var routing_results = <%=@result_list.to_json%>;
+  var switch_point_icons =
+    {2001: '/multimodalrouting/images/parking.png',
+    2002: '/multimodalrouting/images/passenger_exit.png',
+    2003: '/multimodalrouting/images/parkandride.png',
+    2004: '/multimodalrouting/images/u-bahn-icon.png',
+    2005: '/multimodalrouting/images/S-Bahn-icon.png',
+    2006: '/multimodalrouting/images/Tram-icon.png',
+    2007: '/multimodalrouting/images/BUS-icon.png',
+    2008: '/multimodalrouting/images/passenger_exit.png'};
+
+  var switch_point_icon_sizes =
+    {2001: [32,37],
+    2002: [32,37],
+    2003: [32,37],
+    2004: [24,24],
+    2005: [24,24],
+    2006: [24,24],
+    2007: [24,24],
+    2008: [32,37]};
+
+  var colors =
+    {1001: '#000000',
+    1002: '#CE7500',
+    1003: '#0000FF',
+    1004: '#009000',
+    1005: '#FF0000'};
+
+  var um_path_styles =
+    {1001: new esri.symbol.CartographicLineSymbol(
+    esri.symbol.CartographicLineSymbol.STYLE_SOLID,
+    new dojo.Color([0,0,0,0.618]), 5,
+    esri.symbol.CartographicLineSymbol.CAP_ROUND,
+    esri.symbol.CartographicLineSymbol.JOIN_ROUND),
+    1002: new esri.symbol.CartographicLineSymbol(
+    esri.symbol.CartographicLineSymbol.STYLE_SOLID,
+    new dojo.Color([206,117,0,0.618]), 5,
+    esri.symbol.CartographicLineSymbol.CAP_ROUND,
+    esri.symbol.CartographicLineSymbol.JOIN_ROUND),
+    1003: new esri.symbol.CartographicLineSymbol(
+    esri.symbol.CartographicLineSymbol.STYLE_SOLID,
+    new dojo.Color([0,0,255,0.618]), 5,
+    esri.symbol.CartographicLineSymbol.CAP_ROUND,
+    esri.symbol.CartographicLineSymbol.JOIN_ROUND),
+    1004: new esri.symbol.CartographicLineSymbol(
+    esri.symbol.CartographicLineSymbol.STYLE_SOLID,
+    new dojo.Color([0,144,0,0.618]), 5,
+    esri.symbol.CartographicLineSymbol.CAP_ROUND,
+    esri.symbol.CartographicLineSymbol.JOIN_ROUND),
+    1005: new esri.symbol.CartographicLineSymbol(
+    esri.symbol.CartographicLineSymbol.STYLE_SOLID,
+    new dojo.Color([255,0,0,0.618]), 5,
+    esri.symbol.CartographicLineSymbol.CAP_ROUND,
+    esri.symbol.CartographicLineSymbol.JOIN_ROUND)
+  };
+  
+  replaceStartEnd();
+  selectedPathIndex=0;
+  showRoute();
+
+  function replaceStartEnd()
+  {    
+    var final_start_point = new LatLonPoint(parseFloat(final_start['y']), parseFloat(final_start['x']));
+    var final_end_point = new LatLonPoint(parseFloat(final_end['y']), parseFloat(final_end['x']));
+    if (currentbasemap == "unitedmaps")
+    {
+      var mp = new Proj4js.Point(final_start_point.lon, final_start_point.lat);
+      Proj4js.transform(epsg4326_srs, google_srs, mp);
+      var marker_point = new esri.geometry.Point(mp.x, mp.y, um_srs);
+      um_basemap.graphics.remove(um_start_marker);
+      um_start_marker = new esri.Graphic(marker_point, um_start_symbol);
+      um_basemap.graphics.add(um_start_marker);
+
+      mp = new Proj4js.Point(final_end_point.lon, final_end_point.lat);
+      Proj4js.transform(epsg4326_srs, google_srs, mp);
+      marker_point = new esri.geometry.Point(mp.x, mp.y, um_srs);
+      um_basemap.graphics.remove(um_end_marker);
+      um_end_marker = new esri.Graphic(marker_point, um_end_symbol);
+      um_basemap.graphics.add(um_end_marker);
+    }
+    else
+    {
+      mapstraction.removeMarker(start);
+      start = new Marker(final_start_point);
+      start.setIcon("/multimodalrouting/images/dd-start.png");
+      mapstraction.addMarker(start);
+
+      mapstraction.removeMarker(end);
+      end = new Marker(final_end_point);
+      end.setIcon("/multimodalrouting/images/dd-end.png");
+      mapstraction.addMarker(end);
+    }
+  }  
+
+  function showRoute()
+  {    
+    var paths = [];    
+    var paths_by_polyline = [];
+
+    if (selectedPathIndex > -1)
+    {
+      if (currentbasemap == 'unitedmaps')
+        removeAllPathsOnUmMap();
+      else
+      {
+        mapstraction.removeAllPolylines();
+        if (switch_point_markers.length > 0)
+        {
+          var i;
+          for (i = 0; i < switch_point_markers.length; i++)
+            mapstraction.removeMarker(switch_point_markers[i]);
+        }
+      }
+      if (routing_results[selectedPathIndex].is_existent == true)
+      {
+        var i, j;
+        for (i = 0; i < routing_results[selectedPathIndex].rendering_mode_list.length; i++)
+        {
+          paths[i] = [];
+          for (j = 0; j < routing_results[selectedPathIndex].paths_by_points[i].length; j++)
+            paths[i][j] = new LatLonPoint(parseFloat(routing_results[selectedPathIndex].paths_by_points[i][j]['y']), parseFloat(routing_results[selectedPathIndex].paths_by_points[i][j]['x']));
+          if (currentbasemap == 'unitedmaps')
+          {
+            var um_path_by_polyline = new esri.geometry.Polyline(um_srs);
+            var path_points = [];
+            if (paths[i].length > 0)
+            {
+              var mp;
+              for (j = 0; j < paths[i].length; j++)
+              {
+                mp = new Proj4js.Point(paths[i][j].lon, paths[i][j].lat);
+                Proj4js.transform(epsg4326_srs, google_srs, mp);
+                path_points[j] = new esri.geometry.Point(mp.x, mp.y, um_srs);
+              }
+              um_path_by_polyline.addPath(path_points);
+              var um_path = new esri.Graphic(um_path_by_polyline, um_path_styles[routing_results[selectedPathIndex].rendering_mode_list[i]]);
+              um_basemap.graphics.add(um_path);
+              um_paths[i] = um_path;
+            }
+          }
+          else
+          {
+            paths_by_polyline[i] = new Polyline(paths[i]);
+            paths_by_polyline[i].setColor(colors[routing_results[selectedPathIndex].rendering_mode_list[i]]);
+            paths_by_polyline[i].setOpacity(0.618);
+            if (paths[i].length > 0)
+              mapstraction.addPolyline(paths_by_polyline[i]);            
+          }
+        }
+
+        for (i = 0; i < routing_results[selectedPathIndex].switch_point_list.length; i++)
+        {
+          switch_point_markers[i] = new Marker(new LatLonPoint(parseFloat(routing_results[selectedPathIndex].switch_point_list[i]['y']),
+            parseFloat(routing_results[selectedPathIndex].switch_point_list[i]['x'])));
+          switch_point_markers[i].setIcon(switch_point_icons[routing_results[selectedPathIndex].switch_type_list[i]],
+          switch_point_icon_sizes[routing_results[selectedPathIndex].switch_type_list[i]]);
+          switch_point_markers[i].setInfoBubble(routing_results[selectedPathIndex].switch_point_name_list[i]);
+          mapstraction.addMarker(switch_point_markers[i]);
+        }
+      }
+    }
+    replaceStartEnd();
+  }
+    </script>
+  </head>
+  <body>
+    <table style="width:100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td colspan="2">
+          <hr/>
+          <span class="mmrpcomponentheading">Routing results</span><br/>
+        </td>
+      </tr>
+      <% 0.upto(@result_list.length - 1) do |i| %>
+        <% if @result_list[i].is_existent == true then %>
+          <tr id="<%='path_' + i.to_s%>">
+            <td>
+              <a href="javascript:void(0)"><b><%=@result_list[i].description %></b></a><br/>
+              <small><%=(@result_list[i].length / 10.0).round / 100.0 %> km &nbsp;
+                (need <%=(@result_list[i].walking_length / 10.0).round / 100.0 %> km, <%=(@result_list[i].walking_time).to_i %> mins walking)
+              </small>
+            </td>
+            <td style="text-align:right; width: 60px">
+              <b><%=(@result_list[i].time).to_i %> mins</b><br/>
+            </td>
+          </tr>
+        <% else %>
+          <tr id="<%='path_' + i.to_s%>">
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+
+  </body>
+</html>

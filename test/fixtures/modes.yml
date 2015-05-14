@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mode_id: 
+  mode_name: MyString
+
+two:
+  mode_id: 
+  mode_name: MyString

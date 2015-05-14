@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  type_id: 
+  from_mode_id: 
+  to_mode_id: 
+  from_vertex_id: 
+  to_vertex_id: 
+  cost: 
+  is_available: false
+
+two:
+  type_id: 
+  from_mode_id: 
+  to_mode_id: 
+  from_vertex_id: 
+  to_vertex_id: 
+  cost: 
+  is_available: false
